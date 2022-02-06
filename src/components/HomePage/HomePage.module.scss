@@ -1,0 +1,11 @@
+.HomePage {
+  display: flex;
+  height: 100vh;
+  .mainPage {
+    flex-grow: 1;
+    height: 100vh;
+    overflow-y: scroll;
+  box-sizing: border-box;
+  background-color:cyan;
+  }
+}

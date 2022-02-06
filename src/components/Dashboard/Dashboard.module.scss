@@ -1,0 +1,31 @@
+.Dashboard {
+  box-sizing: border-box;
+  h3{
+      margin-left: 1rem;
+      line-height: 0.8;
+      margin-top: 1.5rem;
+  }
+  .View1 {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: red;
+    height: 20vh;
+  }
+  .myGrid {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    & > div {
+      height: 10rem;
+      width: 33.3333%;
+      height:300px;
+      padding: 0.5rem;
+      &>div{
+        background-color:green;
+        width: 100%;
+        height:100%;
+    }
+    }
+  }
+}
