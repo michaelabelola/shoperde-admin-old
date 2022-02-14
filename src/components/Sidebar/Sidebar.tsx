@@ -79,7 +79,7 @@ export default class Sidebar extends Component<SidebarProps, SidebarState> {
               this.state.isOpened
                 ? { opacity: 1 }
                 : { opacity: 0, display:"none" }
-            }
+            } onClick={(ev) => this.toggleSidebar()}
             ></div>
           ) : (
             ""
@@ -105,7 +105,7 @@ export default class Sidebar extends Component<SidebarProps, SidebarState> {
             </div>
             <div className={styles.itemsHolder}>
               <SideBarListItem
-                link="/"
+                link="/dashboard"
                 isExact={true}
                 text={"Home"}
                 icon={<BiHome fontSize={"1.1rem"} />}
@@ -132,29 +132,34 @@ export default class Sidebar extends Component<SidebarProps, SidebarState> {
              </div>
               <SideBarListItem
                 link="/business/shoperde"
-                text={<span><b>Shoperde</b></span>}
+                text={<span>Shoperde</span>}
                 icon={<img alt="Shoperde" src="http://127.0.0.1:5500/login_bg.jpg" />}
               />
               <SideBarListItem
                 link="/business/shenis"
-                text={<span><b>Shenis Apparel</b></span>}
+                text={<span>Shenis Apparel</span>}
                 icon={<img alt="Shenis Apparel" src="http://127.0.0.1:5500/login_bg.jpg" />}
               />
               <SideBarListItem
                 link="/c"
-                text={<span><b>Quaker Deliveries</b></span>}
+                text={<span>Quaker Deliveries</span>}
                 icon={<img alt="Quaker Deliveries" src="http://127.0.0.1:5500/login_bg.jpg" />}
               />
               <SideBarListItem
                 link="/d"
-                text={<span><b>Denim new Fashion Line</b></span>}
+                text={<span>Denim new Fashion Line</span>}
                 icon={<img alt="Denim new Fashion Line" src="http://127.0.0.1:5500/login_bg.jpg" />}
               />
               <SideBarListItem
                 link="/e"
-                text={<span><b>OctaFX Finances</b></span>}
+                text={<span>OctaFX Finances</span>}
                 icon={<img alt="OctaFX Finances" src="http://127.0.0.1:5500/login_bg.jpg" />}
               />
+              <div className={styles.addbtnHolder}>
+              <div className={"btn btn_primary"}>
+                Register Business
+              </div>
+              </div>
               <div className={styles.hiddenBtn}>
                 <small>hidden</small>
               </div>

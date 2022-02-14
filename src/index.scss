@@ -3,11 +3,12 @@
   src: url(./assets/fonts/Proxima-Nova-Thin.otf);
 }
 @font-face {
-  font-family: proximaNova;
+  font-family: Proxima Nova;
   src: url(./assets/fonts/Proxima-Nova-Thin.otf);
 }
+
 :root{
-  --fontType: "proximaNova", Georgia, Serif;
+  --fontType: "Proxima Nova", Georgia, Serif;
   --border-radius:0px;
   --primary-color:#000000;
   --secondary-color:#ffffff;
@@ -15,9 +16,9 @@
   --color-on-secondary:#000000;
   --background:#ffffff;
   --tint:#00000098;
-  --background-alt:#cecece;
+  --background-alt:#e9e9e9;
   --background-secondary:#000000;
-  --background-secondary-alt:#383838;
+  --background-secondary-alt:#484848;
   --color-text:#000000;
   --color-text-secondary:#ffffff;
   --transition-duration: 500ms;
@@ -27,6 +28,7 @@ html{
 }
 body {
   margin: 0;
+  background: var(--background-alt);
   font-family: var(--fontType), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -44,3 +46,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.btn{
+  padding: 0.5rem 0.5rem; 
+  text-transform: uppercase;
+  width:fit-content;
+  font-weight: 600;
+  cursor: pointer;
+  transition-duration: var(--transition-duration);
+  &:invalid{
+    opacity: 0.3;
+    cursor:not-allowed;
+  }
+   &.btn_primary{
+     background: var(--background-secondary);
+     color: var(--color-text-secondary);
+     &:hover{
+       background: var(--background-secondary-alt)
+     }
+     &:active{
+      background: var(--background-secondary);
+      color: var(--color-text-secondary);
+     }
+   }
+ }

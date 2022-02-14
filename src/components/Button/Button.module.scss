@@ -1,0 +1,23 @@
+.Button {
+    cursor: pointer;
+    padding: 0.7rem 1rem;
+    transition-duration: var(--transition-duration);
+    border-radius: var(--border-radius);
+    font-weight:900;
+    &.disabled{
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+    &.primary {
+        background-color: var(--primary-color);
+        color: var(--color-text-secondary);
+        &:hover{
+            opacity: 0.5;
+            color: var(--color-text-secondary);
+          }
+          &:active{
+            background-color: var(--primary-color);
+            color: var(--color-text-secondary);
+          }
+    }
+}

@@ -1,31 +1,126 @@
 .Dashboard {
   box-sizing: border-box;
-  h3{
-      margin-left: 1rem;
-      line-height: 0.8;
-      margin-top: 1.5rem;
+  h3 {
+    margin-left: 1rem;
+    line-height: 0.8;
+    margin-top: 1.5rem;
   }
   .View1 {
     width: 100%;
     box-sizing: border-box;
-    background-color: red;
+    background-color: pink;
     height: 20vh;
   }
   .myGrid {
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     & > div {
-      height: 10rem;
       width: 33.3333%;
-      height:300px;
+      min-height: 200px;
       padding: 0.5rem;
-      &>div{
-        background-color:green;
+      & > div {
+        background-color: white;
         width: 100%;
-        height:100%;
+        height: 100%;
+        border-radius: var(--border-radius);
+        clip-path: clip;
+      }
+      .BusinessCard {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .coverImg {
+          display: block;
+          width: 100%;
+          height: 6rem;
+          background-color: transparent;
+          border-radius: 0 0 var(--border-radius) var(--border-radius);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+        }
+        .topView {
+          position: relative;
+          width: 100%;
+          z-index: 0;
+          .star {
+            position: absolute;
+            right: 0.5rem;
+            z-index: 0;
+            top: 0.5rem;
+            background-color: red;
+          }
+        }
+        .logo {
+          width: 5rem;
+          height: 5rem;
+          border-radius: 5rem;
+          margin-top: -2.5rem;
+          background-color: var(--primary-color);
+          clip-path: clip;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: inherit;
+          }
+        }
+        .title {
+          font-size: 1.2rem;
+          font-weight: 900;
+          padding-top: 1rem;
+          // padding: 0.5rem;
+        }
+        .body {
+          padding: 0.5rem;
+          text-align: center;
+        }
+        .buttonsHolder {
+          width: 100%;
+          display: flex;
+          gap: 1rem;
+          flex-direction: row;
+          justify-content: center;
+          padding: 0.5rem;
+        }
+      }
     }
+
+    @media only screen and (max-width: 1000px) {
+      & {
+        & > div {
+          width: 33.3333%;
+        }
+      }
     }
+    @media only screen and (max-width: 800px) {
+      & {
+        & > div {
+          width: 50%;
+        }
+      }
+    }
+    @media only screen and (max-width: 600px) {
+      & {
+        margin: 0 2rem;
+        & > div {
+          width: 100%;
+        }
+      }
+    }
+    @media only screen and (max-width: 400px) {
+      & {
+        margin: 0;
+        & > div {
+          width: 100%;
+        }
+      }
+    }
+
   }
 }
