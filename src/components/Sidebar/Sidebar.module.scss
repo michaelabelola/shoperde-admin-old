@@ -3,7 +3,7 @@
   top: 0;
   right: 0;
   background-color: green;
-  z-index: 20;
+  z-index: 50;
 }
 .SidebarHolder {
   height: 100vh;
@@ -67,6 +67,7 @@
       background-color: transparent;
       cursor: pointer;
       transition-duration: var(--transition-duration);
+      font-family: (--fontType2);
       img {
         width: 2rem;
       }
@@ -111,6 +112,9 @@
       display: flex;
       align-items: center;
       transition-duration: var(--transition-duration);
+        &:hover{
+          transform: scale(1.05);
+        }
       * {
         font-weight: 900;
       }
@@ -123,8 +127,7 @@
       }
       &:hover {
         background-color: var(--background-secondary-alt);
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-          0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+        box-shadow: var(--card-shadow) !important;
         * {
           color: var(--color-text-secondary);
         }
@@ -155,10 +158,10 @@
     }
     .active {
       .item {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+      box-shadow: var(--card-shadow) !important;
         background-color: var(--background-secondary);
           padding-left: 0.7rem;
+          transform: scale(1.05);
         * {
           color: var(--color-text-secondary);
         }

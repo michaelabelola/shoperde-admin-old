@@ -12,7 +12,8 @@
 }
 
 :root{
-  --fontType: "HumanSans-Light", Georgia, Serif;
+  --fontType: "Roboto Regular", Georgia, Serif;
+  --fontType2: "Montserrat Regular", Georgia, Serif;
   --border-radius:0px;
   --primary-color:#000000;
   --secondary-color:#ffffff;
@@ -30,6 +31,7 @@
   --success-background: rgb(29, 201, 29);
   --success-text-color: rgb(31, 169, 31);
   --transition-duration: 500ms;
+  --card-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 html{
   background-color:var(--background);

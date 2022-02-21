@@ -1,6 +1,6 @@
 import React, { Component, FC } from "react";
 import { BiRightArrowAlt, BiStar } from "react-icons/bi";
-import { FaShieldAlt, FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { FaEdit, FaShieldAlt, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import Button from "../Button/Button";
 import styles from "./Dashboard.module.scss";
 import { Link } from 'react-router-dom';
@@ -12,14 +12,14 @@ laboriosam? Assumenda eaque magni, laboriosam inventore officia,
 tenetur dolore`;
 const Dashboard: FC<DashboardProps> = () => (
   <div className={styles.Dashboard}>
-    <div className={styles.View1}></div>
+    <div className={styles.View1} style={{ background: "url('http://localhost/cover2.jpg')" }}></div>
+
+    <h3>
+      Businesses (<small>6</small>)
+    </h3>
     <div className={styles.myGrid}>
-      <CardType1 title="Rating" subTitle="Gbo e gbo e" link="/ratings" />
-      <CardType1 title="Rating" subTitle="Gbo e gbo e" link="/ratings" />
-      <CardType1 title="Rating" subTitle="Gbo e gbo e" link="/ratings" />
-      <CardType1 title="Rating" subTitle="Gbo e gbo e" />
-      <CardType1 title="Rating" subTitle="Gbo e gbo e" link="/ratings" />
-      <CardType1 title="Rating" subTitle="Gbo e gbo e" link="/ratings" />
+      <CardType1 title="Register Business" link="/registerBusiness" icon={<FaEdit />} />
+      <CardType1 title="Total Sales" subTitle="32,747,534 sales" link="/ratings" />
       <CardType1 title="Rating" subTitle="Gbo e gbo e" link="/ratings" />
       <CardType1 title="Rating" subTitle="Gbo e gbo e" />
       <CardType1 title="Rating" subTitle="Gbo e gbo e" link="/ratings" />
@@ -27,9 +27,6 @@ const Dashboard: FC<DashboardProps> = () => (
       <CardType1 title="Rating" subTitle="Gbo e gbo e" link="/ratings" />
       <CardType1 title="Rating" subTitle="Gbo e gbo e" />
     </div>
-      <h3>
-      Businesses (<small>12</small>)
-    </h3>
     <div className={styles.myGrid}>
       <BusinessCard name="Noon Burgers" text={textO} coverImage="http://localhost/cover1.jpg" logo="http://localhost/logo.png" />
       <BusinessCard name="Mhunis" text={textO} coverImage="http://localhost/cover2.jpg" logo="http://localhost/logo1.png" />
@@ -38,7 +35,7 @@ const Dashboard: FC<DashboardProps> = () => (
       <BusinessCard name="Mark Up Treats" text={textO} coverImage="http://localhost/cover5.jfif" logo="http://localhost/logo4.png" />
       <BusinessCard name="Solar Foods" text={textO} coverImage="http://localhost/cover1.jpg" logo="http://localhost/logo1.png" link="/ter" />
     </div>
-  
+
   </div>
 );
 interface Card1Props {
@@ -56,13 +53,11 @@ class CardType1 extends Component<Card1Props, Card1State> {
     this.state = {
       mainContent: (
         <div className={styles.card1}>
-          <div className={styles.card1Icon}><FaShieldAlt /></div>
+          {this.props.icon ? (<div className={styles.card1Icon}>{this.props.icon}</div>):""}
           <div className={styles.card1Body}>
-
-            <h3 className={styles.title}>Rating</h3>
-            <p className={styles.subText}>yeifgoiu efi siusurh</p>
+            {this.props.title ? (<h3 className={styles.title}>{this.props.title}</h3>) : ""}
+            {this.props.subTitle ? (<p className={styles.subText}>{this.props.subTitle}</p>) : ""}
           </div>
-
           <div className={styles.endArrow}><BiRightArrowAlt /></div>
         </div>
       )
@@ -73,17 +68,17 @@ class CardType1 extends Component<Card1Props, Card1State> {
     if (this.props.link) {
       return (
         <div className={styles.card1Holder}>
-        <Link to={this.props.link}>
-          {this.state.mainContent}
-        </Link>
+          <Link to={this.props.link}>
+            {this.state.mainContent}
+          </Link>
         </div>
       )
     }
     return (
       <div className={styles.card1Holder}>
-      {this.state.mainContent}
+        {this.state.mainContent}
       </div>
-      )
+    )
   }
 }
 

@@ -141,25 +141,25 @@ export default class Sidebar extends Component<SidebarProps, SidebarState> {
                 icon={<img alt="Shenis Apparel" src="http://localhost/logo2.png" />}
               />
               <SideBarListItem
-                link="/c"
+                link="/business/quaker"
                 text={<span>Quaker Deliveries</span>}
                 icon={<img alt="Quaker Deliveries" src="http://localhost/logo3.png" />}
               />
               <SideBarListItem
-                link="/d"
+                link="/business/denimCL"
                 text={<span>Denim new Fashion Line</span>}
                 icon={<img alt="Denim new Fashion Line" src="http://localhost/logo4.png" />}
               />
               <SideBarListItem
-                link="/e"
+                link="/business/octafx"
                 text={<span>OctaFX Finances</span>}
                 icon={<img alt="OctaFX Finances" src="http://localhost/logo.png" />}
               />
-              <div className={styles.addbtnHolder}>
+              {/* <div className={styles.addbtnHolder}>
               <div className={"btn btn_primary"}>
                 Register Business
               </div>
-              </div>
+              </div> */}
               <div className={styles.hiddenBtn}>
                 <small>hidden</small>
               </div>
