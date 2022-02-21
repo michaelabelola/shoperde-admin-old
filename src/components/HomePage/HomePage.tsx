@@ -12,7 +12,7 @@ export default class HomePage extends Component<HomePageProps, HomePageState> {
     return (
       <div className={styles.HomePage}>
         <Sidebar />
-        <div className={styles.mainPage}>
+        <div className={styles.mainPage + " scroller"}>
           <Switch>
             <Route path="/dashboard" component={Dashboard} />
           </Switch>

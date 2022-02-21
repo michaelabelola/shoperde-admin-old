@@ -16,49 +16,61 @@
     padding-right: 0.5rem;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
-    & > div {
-      width: 33.3333%;
-      min-height: 200px;
+    .BusinessCardHolder {
       padding: 0.5rem;
-      & > div {
-        background-color: white;
-        width: 100%;
-        height: 100%;
-        border-radius: var(--border-radius);
-        clip-path: clip;
-      }
+      width: fit-content;
+      width: 25%;
       .BusinessCard {
         display: flex;
         align-items: center;
         flex-direction: column;
-
+        padding-bottom: 1rem;
+        // min-height: 200px;
+        padding: 0.5rem;
+        background-color: white;
+        //  & > div {
+        //   background-color: white;
+        //   width: 100%;
+        //   height: 100%;
+        //   border-radius: var(--border-radius);
+        //   clip-path: clip;
+        // }
         .coverImg {
           display: block;
           width: 100%;
-          height: 6rem;
+          height: 10rem;
           background-color: transparent;
           border-radius: 0 0 var(--border-radius) var(--border-radius);
           background-repeat: no-repeat;
           background-position: center;
           background-size: cover;
+          .coverTint {
+            object-fit: cover;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            background-color: var(--tint);
+          }
         }
         .topView {
           position: relative;
           width: 100%;
           z-index: 0;
-          .star {
+          .stars {
             position: absolute;
             right: 0.5rem;
             z-index: 0;
             top: 0.5rem;
-            background-color: red;
+            font-size: 1.1rem;
           }
         }
         .logo {
           width: 5rem;
           height: 5rem;
           border-radius: 5rem;
+          border: 4px solid var(--background);
           margin-top: -2.5rem;
           background-color: var(--primary-color);
           clip-path: clip;
@@ -75,6 +87,10 @@
           font-weight: 900;
           padding-top: 1rem;
           // padding: 0.5rem;
+          span {
+            font-size: 0.5rem;
+            color: rgb(2, 204, 2);
+          }
         }
         .body {
           padding: 0.5rem;
@@ -91,16 +107,118 @@
       }
     }
 
+    .card1Holder {
+      padding: 0.5rem;
+      width: fit-content;
+      width: 25%;
+      .card1 {
+        height: auto !important;
+        display: flex;
+        border-radius: var(--border-radius);
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-right: 1rem;
+        box-sizing: border-box;
+        background-color: white;
+        transition-duration: var(--transition-duration);
+
+        .card1Icon {
+          width: 100px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2rem;
+        }
+        .card1Body {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 0.5rem;
+          flex-grow: 1;
+          width: 100%;
+          .title {
+            padding: 0px;
+            margin: 0px;
+          }
+          .subText {
+            margin-top: 0.5rem;
+            padding: 0px;
+            margin: 0px;
+          }
+        }
+        .endArrow {
+          width: fit-content;
+          font-size: 1.5rem;
+          display: flex;
+          align-items: center;
+        }
+        &:hover {
+          background-color: var(--background-secondary-alt);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          * {
+            color: var(--color-text-secondary);
+          }
+          .text {
+            font-weight: 800;
+          }
+        }
+        &:active {
+          background-color: var(--background-secondary);
+          * {
+            color: var(--color-text-secondary);
+          }
+          .text {
+            font-weight: 800;
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: 1400px) {
+      & {
+        .BusinessCardHolder,
+        .card1Holder {
+          width: 33.3333%;
+        }
+      }
+    }
+    @media only screen and (max-width: 1400px) {
+      & {
+        .BusinessCardHolder {
+          width: 40%;
+        }
+        .card1Holder {
+          width: 33.3333%;
+        }
+      }
+    }
+
     @media only screen and (max-width: 1000px) {
       & {
-        & > div {
+        .BusinessCardHolder,
+        .card1Holder {
           width: 33.3333%;
+        }
+      }
+    }
+    @media only screen and (max-width: 840px) {
+      & {
+        .BusinessCardHolder,
+        .card1Holder {
+          width: 50%;
         }
       }
     }
     @media only screen and (max-width: 800px) {
       & {
-        & > div {
+        .BusinessCardHolder,
+        .card1Holder {
           width: 50%;
         }
       }
@@ -108,7 +226,8 @@
     @media only screen and (max-width: 600px) {
       & {
         margin: 0 2rem;
-        & > div {
+        .BusinessCardHolder,
+        .card1Holder {
           width: 100%;
         }
       }
@@ -116,11 +235,11 @@
     @media only screen and (max-width: 400px) {
       & {
         margin: 0;
-        & > div {
+        .BusinessCardHolder,
+        .card1Holder {
           width: 100%;
         }
       }
     }
-
   }
 }

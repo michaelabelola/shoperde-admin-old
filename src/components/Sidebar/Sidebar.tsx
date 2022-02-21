@@ -18,7 +18,7 @@ export default class Sidebar extends Component<SidebarProps, SidebarState> {
     super(props);
     var smallScreen: boolean = false;
     var isOpened: boolean = true;
-    if (window.innerWidth <= 800) {
+    if (window.innerWidth <= 870) {
       isOpened = false;
     }
     this.state = {
@@ -29,9 +29,9 @@ export default class Sidebar extends Component<SidebarProps, SidebarState> {
   }
   componentDidMount() {
     window.onresize = () => {
-      if (window.innerWidth <= 800 && !this.state.isSmallScreen) {
+      if (window.innerWidth <= 870 && !this.state.isSmallScreen) {
         this.setState({ isSmallScreen: true, sidebarWidth: this.sideBarRef.current?.offsetWidth});
-      } else if (window.innerWidth > 800 && this.state.isSmallScreen) {
+      } else if (window.innerWidth > 870 && this.state.isSmallScreen) {
         this.setState({ isSmallScreen: false, sidebarWidth: this.sideBarRef.current?.offsetWidth });
       } else{
         this.setState({sidebarWidth: this.sideBarRef.current?.offsetWidth });}
@@ -86,7 +86,7 @@ export default class Sidebar extends Component<SidebarProps, SidebarState> {
           )}
 
           <div
-            className={styles.Sidebar}
+            className={styles.Sidebar + " scroller"}
             ref = {this.sideBarRef}
             style={
               !this.state.isOpened
@@ -107,24 +107,24 @@ export default class Sidebar extends Component<SidebarProps, SidebarState> {
               <SideBarListItem
                 link="/dashboard"
                 isExact={true}
-                text={"Home"}
-                icon={<BiHome fontSize={"1.1rem"} />}
+                text={"Dashboard"}
+                icon={<BiHome fontSize={"2rem"} />}
               />
               <SideBarListItem
                 link="/finances"
                 text={"Finances"}
                 subText={"🏦"}
-                icon={<FaMoneyCheckAlt fontSize={"1.1rem"} />}
+                icon={<FaMoneyCheckAlt fontSize={"2rem"} />}
               />
               <SideBarListItem
                 link="/records"
                 text={"Records"}
-                icon={<FaAccusoft fontSize={"1.1rem"} />}
+                icon={<FaAccusoft fontSize={"2rem"} />}
               />
               <SideBarListItem
                 link="/profile"
                 text={"Profile"}
-                icon={<BiUser fontSize={"1.1rem"} />}
+                icon={<BiUser fontSize={"2rem"} />}
               />
              <div className={styles.titleHolder}>
              <h3>Businesses</h3>
@@ -133,27 +133,27 @@ export default class Sidebar extends Component<SidebarProps, SidebarState> {
               <SideBarListItem
                 link="/business/shoperde"
                 text={<span>Shoperde</span>}
-                icon={<img alt="Shoperde" src="http://127.0.0.1:5500/login_bg.jpg" />}
+                icon={<img alt="Shoperde" src="http://localhost/logo1.png" />}
               />
               <SideBarListItem
                 link="/business/shenis"
                 text={<span>Shenis Apparel</span>}
-                icon={<img alt="Shenis Apparel" src="http://127.0.0.1:5500/login_bg.jpg" />}
+                icon={<img alt="Shenis Apparel" src="http://localhost/logo2.png" />}
               />
               <SideBarListItem
                 link="/c"
                 text={<span>Quaker Deliveries</span>}
-                icon={<img alt="Quaker Deliveries" src="http://127.0.0.1:5500/login_bg.jpg" />}
+                icon={<img alt="Quaker Deliveries" src="http://localhost/logo3.png" />}
               />
               <SideBarListItem
                 link="/d"
                 text={<span>Denim new Fashion Line</span>}
-                icon={<img alt="Denim new Fashion Line" src="http://127.0.0.1:5500/login_bg.jpg" />}
+                icon={<img alt="Denim new Fashion Line" src="http://localhost/logo4.png" />}
               />
               <SideBarListItem
                 link="/e"
                 text={<span>OctaFX Finances</span>}
-                icon={<img alt="OctaFX Finances" src="http://127.0.0.1:5500/login_bg.jpg" />}
+                icon={<img alt="OctaFX Finances" src="http://localhost/logo.png" />}
               />
               <div className={styles.addbtnHolder}>
               <div className={"btn btn_primary"}>

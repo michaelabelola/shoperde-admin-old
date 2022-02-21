@@ -6,9 +6,13 @@
   font-family: Proxima Nova;
   src: url(./assets/fonts/Proxima-Nova-Thin.otf);
 }
+@font-face {
+  font-family: HumanSans-Light;
+  src: url(./assets/fonts/HumanSans-Light.otf);
+}
 
 :root{
-  --fontType: "Proxima Nova", Georgia, Serif;
+  --fontType: "HumanSans-Light", Georgia, Serif;
   --border-radius:0px;
   --primary-color:#000000;
   --secondary-color:#ffffff;
@@ -21,6 +25,10 @@
   --background-secondary-alt:#484848;
   --color-text:#000000;
   --color-text-secondary:#ffffff;
+  --danger-background: rgb(153, 39, 39);
+  --danger-text-color: rgb(242, 76, 76);
+  --success-background: rgb(29, 201, 29);
+  --success-text-color: rgb(31, 169, 31);
   --transition-duration: 500ms;
 }
 html{
@@ -32,7 +40,7 @@ body {
   font-family: var(--fontType), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-    font-weight: 500;
+    font-weight: 100;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 80%; 
@@ -69,3 +77,27 @@ code {
      }
    }
  }
+
+ .scroller::-webkit-scrollbar {
+  width: 5px;
+  &:hover{
+  width: 10px;
+  }
+}
+
+/* Track */
+.scroller::-webkit-scrollbar-track {
+  // box-shadow: inset 0 0 5px grey; 
+  border-radius: var(--border-radius);
+}
+ 
+/* Handle */
+.scroller::-webkit-scrollbar-thumb {
+  background: var(--primary-color); 
+  border-radius: var(--border-radius);
+}
+
+/* Handle on hover */
+.scroller::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color); 
+}
