@@ -1,0 +1,96 @@
+.Dropdown {
+  position: relative;
+  .MainView {
+    background-color: var(--background);
+    padding: 0.5rem;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition-duration: var(--transition-duration);
+    &:hover {
+      background-color: var(--background-alt);
+    }
+    &.disabled {
+      opacity: 0.4;
+    }
+    .textView {
+      padding: 0.5rem;
+      max-lines: 1;
+      white-space: nowrap;
+    }
+    .arrow {
+      padding: 0.5rem;
+    }
+    &:focus {
+      background-color: var(--background-alt);
+      & + .dropdownMenu {
+        opacity: 1;
+        transform: translateY(0) scaleY(100%);
+        height: fit-content;
+        display: flex;
+        animation-name: example;
+        animation-duration: 500ms;
+        visibility: visible;
+        li{
+        transform: translateY(0) scaleY(100%);
+        animation-name: example;
+        animation-duration: 500ms;
+        }
+      }
+    }
+  }
+  ul {
+    &.dropdownMenu {
+      // background: red;
+      background-color: var(--background);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      position: absolute;
+      width: max-content;
+      transition-duration: var(--transition-duration);
+      // height: 0px;
+      opacity: 0;
+      visibility: hidden;
+      margin-top: 0rem;
+      transform-origin: top;
+      // transform: translateY(-50px) scaleY(50%);
+      height: fit-content;
+      max-height: 40vh;
+        animation-name: example;
+        animation-duration: 500ms;
+        animation-direction: reverse;
+      @keyframes example {
+        from {
+          transform: translateY(-50%) scaleY(50%);
+        }
+        to {
+          transform: translateY(0) scaleY(100%);
+          // display: none;
+        }
+      }
+      @keyframes exampleReverse {
+        from {
+          transform: translateY(0) scaleY(100%);
+        }
+        to {
+          transform: translateY(-50%) scaleY(50%);
+          // display: none;
+        }
+      }
+      // &.open {
+      //   opacity: 1;
+      //   transform: translateY(0) scaleY(100%);
+      //   height: fit-content;
+      //   display: flex;
+      //   animation-name: example;
+      //   animation-duration: 500ms;
+      //   li {
+      //     padding: 0.5rem 1rem;
+      //   }
+      // }
+    }
+  }
+}

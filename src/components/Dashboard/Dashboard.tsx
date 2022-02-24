@@ -28,12 +28,12 @@ const Dashboard: FC<DashboardProps> = () => (
       <CardType1 title="Rating" subTitle="Gbo e gbo e" />
     </div>
     <div className={styles.myGrid}>
-      <BusinessCard name="Noon Burgers" text={textO} coverImage="http://localhost/cover1.jpg" logo="http://localhost/logo.png" />
-      <BusinessCard name="Mhunis" text={textO} coverImage="http://localhost/cover2.jpg" logo="http://localhost/logo1.png" />
-      <BusinessCard name="Dave Eateries" text={textO} coverImage="http://localhost/cover3.jfif" logo="http://localhost/logo2.png" />
-      <BusinessCard name="Emoji" text={textO} coverImage="http://localhost/cover4.jpg" logo="http://localhost/logo3.png" />
-      <BusinessCard name="Mark Up Treats" text={textO} coverImage="http://localhost/cover5.jfif" logo="http://localhost/logo4.png" />
-      <BusinessCard name="Solar Foods" text={textO} coverImage="http://localhost/cover1.jpg" logo="http://localhost/logo1.png" link="/ter" />
+      <BusinessCard name="Noon Burgers" text={textO} coverImage={process.env.REACT_APP_BASE_URL + "cover1.jpg"} logo={process.env.REACT_APP_BASE_URL + "logo.png"} />
+      <BusinessCard name="Mhunis" text={textO} coverImage={process.env.REACT_APP_BASE_URL + "cover2.jpg"} logo={process.env.REACT_APP_BASE_URL + "logo1.png"} />
+      <BusinessCard name="Dave Eateries" text={textO} coverImage={process.env.REACT_APP_BASE_URL + "cover3.jfif"} logo={process.env.REACT_APP_BASE_URL + "logo2.png"} />
+      <BusinessCard name="Emoji" text={textO} coverImage={process.env.REACT_APP_BASE_URL + "cover4.jpg"} logo={process.env.REACT_APP_BASE_URL + "logo3.png"} />
+      <BusinessCard name="Mark Up Treats" text={textO} coverImage={process.env.REACT_APP_BASE_URL + "cover5.jfif"} logo={process.env.REACT_APP_BASE_URL + "logo4.png"} />
+      <BusinessCard name="Solar Foods" text={textO} coverImage={process.env.REACT_APP_BASE_URL + "cover1.jpg"} logo={process.env.REACT_APP_BASE_URL + "logo1.png"} link="/ter" />
     </div>
 
   </div>

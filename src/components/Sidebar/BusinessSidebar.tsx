@@ -1,19 +1,22 @@
 import React, { Component, Ref } from "react";
 import styles from "./Sidebar.module.scss";
-import logo from "./../../assets/images/logo.svg";
-import { FaAccusoft, FaMoneyCheckAlt } from "react-icons/fa";
-import { BiCog, BiHome, BiUser } from "react-icons/bi";
-import { NavLink } from "react-router-dom";
-
-interface SidebarProps {}
+import { FaAccusoft } from "react-icons/fa";
+import { BiCog, BiCreditCardAlt, BiHome, BiKey, BiListMinus, BiRightArrowAlt, BiStoreAlt, BiUser } from "react-icons/bi";
+import { NavLink, RouteComponentProps } from "react-router-dom";
+//RouteComponentProps<{ businessId: string; }
+interface SidebarProps extends RouteComponentProps<{ businessId: string; }> {
+  history: any;
+  location: any;
+  match: any;
+}
 interface SidebarState {
   isOpened: boolean;
   isSmallScreen: boolean;
   sidebarWidth: any;
 }
 
-export default class Sidebar extends Component<SidebarProps, SidebarState> {
-   sideBarRef:React.RefObject<HTMLDivElement>  = React.createRef();
+export default class BusinessSidebar extends Component<SidebarProps, SidebarState> {
+  sideBarRef: React.RefObject<HTMLDivElement> = React.createRef();
   constructor(props: SidebarProps, state: SidebarState) {
     super(props);
     var smallScreen: boolean = false;
@@ -24,18 +27,18 @@ export default class Sidebar extends Component<SidebarProps, SidebarState> {
     this.state = {
       isOpened: isOpened,
       isSmallScreen: smallScreen,
-      sidebarWidth:"0px"
+      sidebarWidth: "0px"
     };
-    
   }
   componentDidMount() {
     window.onresize = () => {
       if (window.innerWidth <= 870 && !this.state.isSmallScreen) {
-        this.setState({ isSmallScreen: true, sidebarWidth: this.sideBarRef.current?.offsetWidth});
+        this.setState({ isSmallScreen: true, sidebarWidth: this.sideBarRef.current?.offsetWidth });
       } else if (window.innerWidth > 870 && this.state.isSmallScreen) {
         this.setState({ isSmallScreen: false, sidebarWidth: this.sideBarRef.current?.offsetWidth });
-      } else{
-        this.setState({sidebarWidth: this.sideBarRef.current?.offsetWidth });}
+      } else {
+        this.setState({ sidebarWidth: this.sideBarRef.current?.offsetWidth });
+      }
     };
   }
   shouldComponentUpdate(
@@ -69,18 +72,18 @@ export default class Sidebar extends Component<SidebarProps, SidebarState> {
     return (
       <>
         <div className={styles.SidebarHolder}
-        style={
-              this.state.isOpened && this.state.isSmallScreen
-                ? { width: "100%"}
-                : { width: "fit-content"}
-            }>
+          style={
+            this.state.isOpened && this.state.isSmallScreen
+              ? { width: "100%" }
+              : { width: "fit-content" }
+          }>
           {this.state.isSmallScreen ? (
             <div className={styles.hiderView}
-            style={
-              this.state.isOpened
-                ? { opacity: 1 }
-                : { opacity: 0, display:"none" }
-            } onClick={(ev) => this.toggleSidebar()}
+              style={
+                this.state.isOpened
+                  ? { opacity: 1 }
+                  : { opacity: 0, display: "none" }
+              } onClick={(ev) => this.toggleSidebar()}
             ></div>
           ) : (
             ""
@@ -88,85 +91,85 @@ export default class Sidebar extends Component<SidebarProps, SidebarState> {
 
           <div
             className={styles.Sidebar + " scroller"}
-            ref = {this.sideBarRef}
+            ref={this.sideBarRef}
             style={
               !this.state.isOpened
-                ? { marginLeft: this.sideBarRef?("-"+this.state.sidebarWidth+"px"): ("0px"), display:"none" }
+                ? { marginLeft: this.sideBarRef ? ("-" + this.state.sidebarWidth + "px") : ("0px"), display: "none" }
                 : { marginLeft: "0px" }
             }
           >
-            <button className="bttnz" onClick={(ev) => this.toggleSidebar()} style={{display: "none"}}>
+            <button className="bttnz" onClick={(ev) => this.toggleSidebar()} style={{ display: "none" }}>
               toggle Sidebar
             </button>
             <div className={styles.Top}>
               <div className={styles.container}>
-                <img src={logo} alt={"bg"} />
-                <span tabIndex={0}>Shoperde Admin</span>
+                <img src={process.env.REACT_APP_BASE_URL + "logo1.png"} alt="bg" />
+                <span tabIndex={0}>Shenis Group Of Companies</span>
               </div>
             </div>
             <div className={styles.itemsHolder}>
               <SideBarListItem
-                link="/dashboard"
+                link="dashboard"
                 isExact={true}
                 text={"Dashboard"}
                 icon={<BiHome fontSize={"2rem"} />}
               />
               <SideBarListItem
-                link="/finances"
+                link={this.props.match.url + "/finances"}
                 text={"Finances"}
                 subText={"🏦"}
-                icon={<FaMoneyCheckAlt fontSize={"2rem"} />}
+                icon={<BiCreditCardAlt fontSize={"2rem"} />}
               />
               <SideBarListItem
-                link="/records"
-                text={"Records"}
+                link={this.props.match.url + "/orders"}
+                text={"Orders"}
                 icon={<FaAccusoft fontSize={"2rem"} />}
               />
               <SideBarListItem
-                link="/profile"
-                text={"Profile"}
+                link={this.props.match.url + "/permission"}
+                text={"Permissions"}
+                icon={<BiKey fontSize={"2rem"} />}
+              />
+              <SideBarListItem
+                link={this.props.match.url + "/listings"}
+                text={"Listings"}
+                icon={<BiListMinus fontSize={"2rem"} />}
+              />
+              <SideBarListItem
+                link={this.props.match.url + "/deliveries"}
+                text={"Transportation / Deliveries"}
+                icon={<BiListMinus fontSize={"2rem"} />}
+              />
+              <SideBarListItem
+                link={this.props.match.url + "/customerManagement"}
+                text={"Customer Management"}
                 icon={<BiUser fontSize={"2rem"} />}
               />
-             <div className={styles.titleHolder}>
-             <h3>Businesses</h3>
-             <div className={styles.iconArea}><BiCog /></div>
-             </div>
               <SideBarListItem
-                link="/business/shoperde"
+                link={this.props.match.url + "/customerManagement"}
+                text={"Properties / Locations"}
+                icon={<BiStoreAlt fontSize={"2rem"} />}
+              />
+              <div className={styles.titleHolder}>
+                <h3>Groups</h3>
+                <div className={styles.iconArea}><BiRightArrowAlt /></div>
+              </div>
+              <div className={styles.titleHolder}>
+                <h3>Sub Businesses</h3>
+                <div className={styles.iconArea}><BiRightArrowAlt /></div>
+              </div>
+              <SideBarListItem
+                link={this.props.match.url + "/business/shoperde"}
                 text={<span>Shoperde</span>}
                 icon={<img alt="Shoperde" src={process.env.REACT_APP_BASE_URL + "logo1.png"} />}
-                subText={"Eatery"}
-
+                subText={"Store"}
               />
               <SideBarListItem
-                link="/business/shenis"
+                link={this.props.match.url + "/business/shenis"}
                 text={<span>Shenis Apparel</span>}
-                icon={<img alt="Shenis Apparel" src={process.env.REACT_APP_BASE_URL + "logo2.png"} />}
-                subText={"Apparel"}
+                icon={<img alt="Shenis Apparel" src={process.env.REACT_APP_BASE_URL + "logo1.png"} />}
+                subText={"Apparel / Accessories"}
               />
-              <SideBarListItem
-                link="/business/quaker"
-                text={<span>Quaker Deliveries</span>}
-                icon={<img alt="Quaker Deliveries" src={process.env.REACT_APP_BASE_URL + "logo3.png"} />}
-                subText={"Foods"}
-              />
-              <SideBarListItem
-                link="/business/denimCL"
-                text={<span>Denim new Fashion Line</span>}
-                icon={<img alt="Denim new Fashion Line" src={process.env.REACT_APP_BASE_URL + "logo4.png"} />}
-                subText={"Clothing"}
-              />
-              <SideBarListItem
-                link="/business/octafx"
-                text={<span>OctaFX Finances</span>}
-                icon={<img alt="OctaFX Finances" src={process.env.REACT_APP_BASE_URL + "logo.png"} />}
-                subText={"Finances"}
-              />
-              {/* <div className={styles.addbtnHolder}>
-              <div className={"btn btn_primary"}>
-                Register Business
-              </div>
-              </div> */}
               <div className={styles.hiddenBtn}>
                 <small>hidden</small>
               </div>

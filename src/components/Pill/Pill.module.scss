@@ -1,1 +1,28 @@
-.Pill {}
+.Pill {
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.5em 2em;
+  //   border: 2px solid palevioletred;
+  border-radius: 300px;
+  width: fit-content;
+  background-color: var(--background);
+  cursor: pointer;
+  transition-duration: var(--transition-duration);
+  &.inactive {
+    opacity: 0.5;
+    cursor: default;
+    &:hover {
+      background-color: transparent !important;
+    }
+  }
+  &:hover {
+    background-color: var(--background-alt);
+    box-shadow: var(--card-shadow);
+          transform: scale(1.05);
+  }
+  &:active {
+    background-color: var(--background);
+    box-shadow: none;
+          transform: scale(1);
+  }
+}

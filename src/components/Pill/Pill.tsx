@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import styles from './Pill.module.scss';
+import styled from "styled-components";
 
-interface PillProps {}
-
+interface PillProps {  }
 const Pill: FC<PillProps> = () => (
   <div className={styles.Pill}>
     Pill Component

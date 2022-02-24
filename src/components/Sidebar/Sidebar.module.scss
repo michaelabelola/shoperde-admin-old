@@ -11,9 +11,14 @@
   width: fit-content;
   position: relative;
   transition-duration: var(--transition-duration);
+  flex-grow: 0;
+  flex-shrink: 0;
   @media only screen and (max-width: 1000px) {
     & {
       width: fit-content;
+      // flex-grow: 0;
+      // flex-shrink: 0;
+      // flex-basis: 20px;
     }
   }
   @media only screen and (max-width: 870px) {
@@ -24,7 +29,6 @@
   }
   @media only screen and (max-width: 600px) {
     & {
-      // width: 300px;
       width: fit-content;
       position: fixed;
     }
@@ -44,6 +48,7 @@
   overflow-y: scroll;
   background-color: var(--background);
   transition-duration: var(--transition-duration);
+  box-shadow: var(--card-shadow);
   &.hidden {
     display: none !important;
   }
@@ -67,7 +72,6 @@
       background-color: transparent;
       cursor: pointer;
       transition-duration: var(--transition-duration);
-      font-family: (--fontType2);
       img {
         width: 2rem;
       }
@@ -112,15 +116,15 @@
       display: flex;
       align-items: center;
       transition-duration: var(--transition-duration);
-        &:hover{
-          transform: scale(1.05);
-        }
+      &:hover {
+        transform: scale(1.05);
+      }
       * {
         font-weight: 900;
       }
       img {
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2rem;
+        height: 2rem;
         object-fit: cover;
         object-position: center;
         border-radius: 2rem;
@@ -133,6 +137,7 @@
         }
         .text {
           font-weight: 800;
+          white-space: nowrap !important;
         }
       }
       .itemBody {
@@ -158,10 +163,10 @@
     }
     .active {
       .item {
-      box-shadow: var(--card-shadow) !important;
+        box-shadow: var(--card-shadow) !important;
         background-color: var(--background-secondary);
-          padding-left: 0.7rem;
-          transform: scale(1.05);
+        padding-left: 0.7rem;
+        transform: scale(1.05);
         * {
           color: var(--color-text-secondary);
         }

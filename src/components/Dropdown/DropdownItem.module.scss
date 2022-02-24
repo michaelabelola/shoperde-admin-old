@@ -1,0 +1,16 @@
+ li {
+        padding: 1rem 1.5rem;
+        max-lines: 1;
+        white-space: nowrap;
+        width: 100%;
+        &.inactive {
+          opacity: 0.5;
+          cursor: default;
+          &:hover {
+            background-color: transparent !important;
+          }
+        }
+        &:hover {
+          background-color: var(--background-alt);
+        }
+      }
