@@ -1,0 +1,62 @@
+.ListingsPage {
+  .topView {
+    // background-color: var(--background);
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    width: 100%;
+    padding: 0.5rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    h1 {
+      margin: 0.5rem;
+    }
+    dov {
+      margin: 0;
+    }
+    .topViewTitleHolder {
+      width: 100%;
+      height: fit-content;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: baseline;
+    }
+    .sec2 {
+      display: flex;
+      .left {
+        flex-grow: 1;
+      }
+      .right {
+        padding: 0rem 1rem;
+        div {
+          white-space: nowrap;
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+          // line-height: 3;
+          margin-bottom: 0.5rem;
+          b {
+            padding-right: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+hr{
+    margin: 1rem;
+    border: 1px solid var(--background-secondary);
+    opacity: 0.3;
+    z-index: 1;
+}
+  .body {
+    .actions {
+    }
+  }
+}
+.listTitleHead {
+  background-color: transparent !important;
+  font-size: 1.4rem;
+  font-weight: 800;
+  padding: 0 !important;
+}

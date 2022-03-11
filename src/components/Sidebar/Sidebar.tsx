@@ -68,36 +68,10 @@ export default class Sidebar extends Component<SidebarProps, SidebarState> {
   render() {
     return (
       <>
-        <div className={styles.SidebarHolder}
-        style={
-              this.state.isOpened && this.state.isSmallScreen
-                ? { width: "100%"}
-                : { width: "fit-content"}
-            }>
-          {this.state.isSmallScreen ? (
-            <div className={styles.hiderView}
-            style={
-              this.state.isOpened
-                ? { opacity: 1 }
-                : { opacity: 0, display:"none" }
-            } onClick={(ev) => this.toggleSidebar()}
-            ></div>
-          ) : (
-            ""
-          )}
-
+       
           <div
-            className={styles.Sidebar + " scroller"}
-            ref = {this.sideBarRef}
-            style={
-              !this.state.isOpened
-                ? { marginLeft: this.sideBarRef?("-"+this.state.sidebarWidth+"px"): ("0px"), display:"none" }
-                : { marginLeft: "0px" }
-            }
+            className={styles.Sidebar}
           >
-            <button className="bttnz" onClick={(ev) => this.toggleSidebar()} style={{display: "none"}}>
-              toggle Sidebar
-            </button>
             <div className={styles.Top}>
               <div className={styles.container}>
                 <img src={logo} alt={"bg"} />
@@ -172,7 +146,6 @@ export default class Sidebar extends Component<SidebarProps, SidebarState> {
               </div>
             </div>
           </div>
-        </div>
       </>
     );
   }

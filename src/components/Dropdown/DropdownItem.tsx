@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, ReactElement } from 'react';
 import styles from './DropdownItem.module.scss';
 interface DropdownItemProps {
-    text?: string;
+    text?: string | ReactElement;
     id: string | number;
     inActive?: boolean;
     callback: Function;
@@ -9,6 +9,10 @@ interface DropdownItemProps {
 interface DropdownItemState {
     id?: string | number;
     inActive: boolean;
+}
+interface DropdownItemObject {
+    id: string,
+    text: string | ReactElement,
 }
 class DropdownItem extends Component<DropdownItemProps, DropdownItemState> {
     constructor(props: DropdownItemProps) {
@@ -31,3 +35,4 @@ class DropdownItem extends Component<DropdownItemProps, DropdownItemState> {
     }
 }
 export default DropdownItem;
+export type { DropdownItemObject };

@@ -1,13 +1,32 @@
 .Pill {
   font-size: 1em;
-  margin: 1em;
-  padding: 0.5em 2em;
+  padding: 0.5em 1em;
   //   border: 2px solid palevioletred;
   border-radius: 300px;
   width: fit-content;
-  background-color: var(--background);
+  height: fit-content;
+  background-color: var(--primary-color-alt);
+  color: var(--color-on-primary);
   cursor: pointer;
   transition-duration: var(--transition-duration);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  span{
+  display: flex;
+  align-items: center;
+  &:first-child{
+    margin-right: 0.5rem;
+  }
+  &:last-child{
+    margin-left: 0.5rem;
+  }
+  img{
+    height: 1rem;
+    width: 1rem;
+    border-radius: 100%;
+  }
+}
   &.inactive {
     opacity: 0.5;
     cursor: default;
@@ -25,4 +44,12 @@
     box-shadow: none;
           transform: scale(1);
   }
+}
+.PillGroup{
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: baseline;
 }

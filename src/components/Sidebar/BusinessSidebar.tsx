@@ -10,97 +10,17 @@ interface SidebarProps extends RouteComponentProps<{ businessId: string; }> {
   match: any;
 }
 interface SidebarState {
-  isOpened: boolean;
-  isSmallScreen: boolean;
-  sidebarWidth: any;
 }
 
 export default class BusinessSidebar extends Component<SidebarProps, SidebarState> {
   sideBarRef: React.RefObject<HTMLDivElement> = React.createRef();
   constructor(props: SidebarProps, state: SidebarState) {
     super(props);
-    var smallScreen: boolean = false;
-    var isOpened: boolean = true;
-    if (window.innerWidth <= 870) {
-      isOpened = false;
-    }
-    this.state = {
-      isOpened: isOpened,
-      isSmallScreen: smallScreen,
-      sidebarWidth: "0px"
-    };
   }
-  componentDidMount() {
-    window.onresize = () => {
-      if (window.innerWidth <= 870 && !this.state.isSmallScreen) {
-        this.setState({ isSmallScreen: true, sidebarWidth: this.sideBarRef.current?.offsetWidth });
-      } else if (window.innerWidth > 870 && this.state.isSmallScreen) {
-        this.setState({ isSmallScreen: false, sidebarWidth: this.sideBarRef.current?.offsetWidth });
-      } else {
-        this.setState({ sidebarWidth: this.sideBarRef.current?.offsetWidth });
-      }
-    };
-  }
-  shouldComponentUpdate(
-    nextProps: Readonly<SidebarProps>,
-    nextState: Readonly<SidebarState>
-  ): boolean {
-    return true;
-  }
-  componentDidUpdate(
-    prevProps: Readonly<SidebarProps>,
-    prevState: Readonly<SidebarState>
-  ) {
-  }
-
-  toggleSidebar: Function = (open?: boolean) => {
-    if (open == null) {
-      if (this.state.isOpened) {
-        this.setState({ isOpened: false });
-      } else {
-        this.setState({ isOpened: true });
-      }
-      return;
-    }
-    if (!open) {
-      if (this.state.isOpened) {
-        this.setState({ isOpened: false });
-      }
-    }
-  };
   render() {
     return (
       <>
-        <div className={styles.SidebarHolder}
-          style={
-            this.state.isOpened && this.state.isSmallScreen
-              ? { width: "100%" }
-              : { width: "fit-content" }
-          }>
-          {this.state.isSmallScreen ? (
-            <div className={styles.hiderView}
-              style={
-                this.state.isOpened
-                  ? { opacity: 1 }
-                  : { opacity: 0, display: "none" }
-              } onClick={(ev) => this.toggleSidebar()}
-            ></div>
-          ) : (
-            ""
-          )}
-
-          <div
-            className={styles.Sidebar + " scroller"}
-            ref={this.sideBarRef}
-            style={
-              !this.state.isOpened
-                ? { marginLeft: this.sideBarRef ? ("-" + this.state.sidebarWidth + "px") : ("0px"), display: "none" }
-                : { marginLeft: "0px" }
-            }
-          >
-            <button className="bttnz" onClick={(ev) => this.toggleSidebar()} style={{ display: "none" }}>
-              toggle Sidebar
-            </button>
+          <div className={styles.Sidebar}>
             <div className={styles.Top}>
               <div className={styles.container}>
                 <img src={process.env.REACT_APP_BASE_URL + "logo1.png"} alt="bg" />
@@ -175,7 +95,6 @@ export default class BusinessSidebar extends Component<SidebarProps, SidebarStat
               </div>
             </div>
           </div>
-        </div>
       </>
     );
   }

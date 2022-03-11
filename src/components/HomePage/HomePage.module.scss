@@ -1,10 +1,60 @@
 .HomePage {
   display: flex;
   height: 100vh;
+  .SidebarHolder {
+    height: 100vh;
+    width: 250px;
+    position: relative;
+    transition-duration: var(--transition-duration);
+    flex-grow: 0;
+    flex-shrink: 0;
+z-index: 10000;
+  &.hidden {
+        display: none !important;
+      }
+      @media only screen and (max-width: 860px) {
+        & {
+          position: fixed;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        & {
+          position: fixed;
+        }
+      }
+    .Sidebar {
+      width: 250px;
+      height: 100vh;
+      overflow-y: scroll;
+      background-color: var(--background);
+      transition-duration: var(--transition-duration);
+      box-shadow: var(--card-shadow);
+      padding: 0px !important;
+      flex-grow: 0;
+      flex-shrink: 0;
+    
+    }
+  }
+  
+    .hiderView {
+      background-color: var(--tint);
+      position: fixed;
+      height: 100%;
+      width: 100vw;
+      transition-duration: var(--transition-duration);
+      display: none;
+      opacity: 0;
+      z-index: 9999;
+    }
   .mainPage {
     flex-grow: 1;
     height: 100vh;
     overflow-y: scroll;
-  box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .sidebarToggler {
+    position: fixed;
+    top: 0;
+    right: 0;
   }
 }
