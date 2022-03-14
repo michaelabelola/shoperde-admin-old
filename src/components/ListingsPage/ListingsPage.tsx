@@ -207,7 +207,7 @@ class ListingsPage extends Component<ListingsPageProps, ListingsPageState> {
             </PillGroup>
           </div>
         </div>
-        ListingsPage Component {this.props.match.params.businessId}
+        {/* ListingsPage Component {this.props.match.params.businessId} */}
 
         <DataTable
           columns={this.columns}

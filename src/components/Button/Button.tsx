@@ -30,6 +30,7 @@ export default class Button extends Component<ButtonProps, ButtonState> {
   mainView: any = (
     <div className={styles.Button + " " + styles.primary} onClick={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => (this.onClickFn(event))}>
       {this.props.text}
+      {this.props.children}
     </div>
   );
   render() {

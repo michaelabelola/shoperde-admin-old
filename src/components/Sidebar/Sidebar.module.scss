@@ -47,7 +47,7 @@
         cursor: pointer;
         transition-duration: var(--transition-duration);
         &:hover {
-          background-color: var(--background-secondary-alt);
+          background-color: var(--primary-color-alt);
           color: var(--color-text-secondary);
         }
       }

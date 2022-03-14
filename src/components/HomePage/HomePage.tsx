@@ -8,6 +8,7 @@ import BusinessSidebar from "../Sidebar/BusinessSidebar";
 import Sidebar from "../Sidebar/Sidebar";
 import styles from "./HomePage.module.scss";
 import Button from './../Button/Button';
+import TopNavigation from "../TopNavigation/TopNavigation";
 
 interface HomePageProps extends RouteComponentProps {
 }
@@ -104,15 +105,13 @@ export default class HomePage extends Component<HomePageProps, HomePageState> {
           ""
         )}
         <div className={styles.mainPage + " scroller"}>
+          <TopNavigation toggleSidebar={this.toggleSidebar} />
           <Switch>
             <Route path="/dashboard" component={Dashboard} />
             <Route exact path={"/business/:businessId"} render={(props: RouteComponentProps<{ businessId: string; }, StaticContext, unknown>) => (<Redirect to={props.location.pathname + "/dashboard"} />)} />
             <Route path={businessDir + "/listings"} component={ListingsPage} />
             <Route path={["/business", businessDir, businessDir + "/*"]} component={Business} />
           </Switch>
-        </div>
-        <div className={styles.sidebarToggler}>
-          <Button text={"Toggle Sidebar"} callback={this.toggleSidebar} />
         </div>
       </div>
     );
